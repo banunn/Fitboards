@@ -1,0 +1,45 @@
+
+.sub-nav {
+    margin-bottom: 56px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    ul {
+        @extend .list-reset;
+        display: flex;
+        li {
+            @extend .headFont;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 20px;
+            display: inline-block;
+            margin-right: 55px;
+            &:last-child {
+                margin-right:0;
+            }
+            a {
+                color: rgba($black, .4);
+                display: block;
+                &:hover {
+                    text-decoration: none;
+                    color: rgba($black, .7);
+                }
+            }
+            &.active {
+                a {
+                    color: $black;
+                    border-bottom: 4px solid $black;
+                }
+            }
+        }
+    }
+    .sub-form {
+        i {
+            transform: translate(5px ,5px);
+        }
+        input {
+            padding: 8px 5px;
+            border: 1px solid $black;
+        }
+    }
+}

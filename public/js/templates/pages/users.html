@@ -1,0 +1,51 @@
+<div class="wrap page-user">
+    <header class="sub-nav">
+        <ul>
+            <li class="active"><a href="">All Users</a></li>
+            <li><a href="">Free</a></li>
+            <li><a href="">Standard</a></li>
+            <li><a href="">Pro</a></li>
+        </ul>
+        <div class="sub-form input-icon">
+            <i class="material-icons">search</i>
+            <input type="search" placeholder="Search users">
+        </div>
+    </header>
+
+    <div class="hustle-table">
+        <header class="table-head">
+            <div class="table-ctrl">
+                <button class="icon-btn"><i class="material-icons">check_box_outline_blank</i></button>
+            </div>
+            <div>
+                <h3>Name</h3>
+            </div>
+            <div>
+                <h3>Email Address</h3>
+            </div>
+            <div>
+                <h3>Account Type</h3>
+            </div>
+            <div>
+                <h3>Status</h3>
+            </div>
+            <div>
+                <h3>Initial Signup</h3>
+            </div>
+            <div>
+                <h3>Last Login</h3>
+            </div>
+        </header>
+        <ul>
+            <li ng-class="{selected: selected}" ng-repeat="u in users">
+                <div class="table-ctrl"><button class="icon-btn" ng-click="selected = !selected"><i class="material-icons">{{selected == true ? 'check_box' : 'check_box_outline_blank'}}</i></button></div>
+                <div><a ui-sref="profile" ng-click="setUser(u.uid)">{{u.fullName}}</a></div> 
+                <div>{{u.email}}</div>
+                <div>standard</div>
+                <div>active</div>
+                <div>07/01/0217</div>
+                <div>03/14/2017</div>
+            </li>
+        </ul>
+    </div>
+</div>

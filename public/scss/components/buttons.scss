@@ -1,0 +1,83 @@
+.btn {
+    padding: 15px 22px;
+    color: #fff;
+    background: $blue;
+    border: none;
+    font-family: bebas-neue, sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    cursor:pointer;
+    &:hover {
+        background: darken($blue, 5%);
+    }
+    &:active {
+        transform: translateY(1px);
+    }
+    &.block {
+        width: 100%;
+    }
+    &.disabled {
+        opacity: .65;
+        pointer-events: none;
+    }
+}
+
+button {
+    cursor:pointer;
+    i {
+        margin-right: 5px;
+    }
+}
+.icon-btn {
+    border: none;
+    background: none;
+    padding:0;
+}
+
+.btn-filled {
+    color: #fff;
+    background: $black;
+    display: flex;
+    align-items: center;
+    border: 1px solid $black;
+    padding: 5px 10px;
+    &:hover {
+    background: darken($black, 5%);
+    border: 1px solid darken($black, 5%);
+    color: #fff;
+    }
+}
+
+.circle-btn {
+    padding: 5px 6px;
+    border: 1px solid $black;
+    border-radius: 50%;
+    line-height: 32px;
+    height: 32px;
+    width: 32px;
+    text-align: center;
+    opacity: .45;
+    transition: opacity .35s ease;
+    i {
+    line-height: 23px;
+    margin: 0;
+    position: relative;
+    left: -2px;
+    }
+    &:hover {
+        opacity: 1;
+    }
+}
+.btn-reset {
+    background: $blue;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border: 1px solid $blue;
+    padding: 5px 10px;
+    &:hover {
+    background: darken($blue, 5%);
+    border: 1px solid darken($blue, 5%);
+    color: #fff;
+    }
+}

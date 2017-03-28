@@ -1,0 +1,32 @@
+    <div class="welcome" style="background-image: url('img/hustl.jpg')" alt="">
+          <div class="form" id="login">
+              <header>Welcome &amp; <span class="red">Hustle</span></header>
+              <div class="main">
+                <form action="">
+                <div ng-show="formState == 'signup'" class="input-icon">
+                    <i class="material-icons">assignment_ind</i>
+                    <input type="text" ng-model="fullName" placeholder="full name">
+                </div>
+                  <div class="input-icon">
+                    <i class="material-icons">person</i>
+                    <input type="text" ng-model="email" placeholder="email">
+                  </div>
+                  <div class="input-icon">
+                    <i class="material-icons">lock_outline</i>
+                    <input type="password" ng-model="pass" placeholder="password"> 
+                  </div>
+                </form>
+              </div>
+              <footer class="form-foot">
+                  <button ng-if="formState == 'login'" ng-click="signIn(email, pass)" class="btn block">Login</button>
+                  <button ng-if="formState == 'signup'" ng-click="signUp(email, pass)" class="btn block">Sign Up</button>
+
+              </footer>
+              <footer class="sub-foot center">
+                <p ng-show="formState == 'login'">Not a hustler yet? <a ng-click="formState = 'signup'">Sign up now!</a></p>
+                <p ng-show="formState == 'signup'">Already have an account? <a ng-click="formState = 'login'">Sign in!</a></p>
+              </footer>
+              <footer class="errorFoot" ng-if="error">{{error}}</footer>
+          </div>
+
+    </div>

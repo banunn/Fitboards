@@ -1,0 +1,74 @@
+<div class="wrap">
+    <header class="space-between">
+        <h1>{{workout.title}}</h1>
+        <button ui-sref="workouts" class="icon-btn circle-btn"><i class="material-icons">arrow_back</i></button>
+    </header>
+    <main class="flex-main">
+        <section>
+        <div>
+           <h3>Workout Type</h3>
+           <p>{{workout.type}}</p>
+           </div>
+       <div>
+        <div ng-if="workout.created">
+           <h3>Workout Created</h3>
+           <p>{{workout.created | date: 'fullDate'}}</p>
+           </div>
+       <div>
+           <h3>Workout Category</h3>
+           <p>{{workout.category}}</p>
+        </div>
+       <div>
+            <h3>Description</h3>
+            <p>{{workout.description}}</p>
+        </div>
+       <div>
+           <h3>Workout Movements</h3>
+           <ul>
+               <li ng-repeat="m in workout.movements">
+                   <span>{{m.movement}}</span> | <span>{{m.reps}}</span>
+               </li>
+           </ul>
+       </div>
+       <div>
+           <h3>Weight</h3>
+            <ul>
+               <li ng-repeat="(key, value) in workout.weight">
+                   <span>{{key}}</span> | <span>{{value}} lbs</span>
+               </li> 
+           </ul>
+       </div>
+        <header class="action">
+            <button ng-show="!registered" ng-click="register(uid);" class="btn btn-block"><i class="material-icons">check</i> Register</button>
+            <button ng-show="registered" ng-click="unregister(uid);" class="btn btn-block btn-negative"><i class="material-icons">block</i> Registered</button>
+        </header>
+        </section>
+        <section>
+                   <div>
+           <h3>Full Description</h3>
+           <p>{{workout.fullDescription}}</p>
+       </div>
+       <div>
+           <h3>Required Equipment</h3>
+            <ul>
+               <li ng-repeat="r in workout.equipment">
+                   <span>{{r.item}}</span>
+               </li>
+           </ul>
+       </div>
+       <div>
+           <h3>Video Submission Standards</h3>
+           <p>{{workout.standards}}</p>
+       </div>
+       <div>
+            <h3>Dates</h3>
+            <ul>
+               <li ng-repeat="(key, value) in workout.date">
+                   <span>{{key}}</span> | <span>{{value}}</span>
+               </li>
+           </ul>
+       </div>
+        </section>
+
+    </main>
+</div>

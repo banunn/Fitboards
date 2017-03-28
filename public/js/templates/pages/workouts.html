@@ -1,0 +1,61 @@
+<div class="wrap page-workouts">
+    <header class="sub-nav">
+        <ul>
+            <li class="active"><a href="">All Workouts</a></li>
+            <li><a href="">For Time</a></li>
+            <li><a href="">AMRAP</a></li>
+            <li><a href="">Total Weight</a></li>
+        </ul>
+        <div class="sub-form input-icon">
+            <i class="material-icons">search</i>
+            <input type="search" placeholder="Search Workouts">
+        </div>
+    </header>
+
+    <div class="hustle-table wo-table">
+        <header class="table-head">
+            <div class="table-ctrl">
+                <button class="icon-btn"><i class="material-icons">check_box_outline_blank</i></button>
+            </div>
+            <div>
+                <h3>Title</h3>
+            </div>
+            <div>
+                <h3>Objective</h3>
+            </div>
+            <div>
+                <h3>Category</h3>
+            </div>
+            <div>
+                <h3>Movements</h3>
+            </div>
+            <div>
+                <h3>Publish Date</h3>
+            </div>
+            <div>
+                <h3>Start Date</h3>
+            </div>
+            <div>
+                <h3>Close Date</h3>
+            </div>
+            <div ng-show="selected">
+                <h3>Action</h3>
+            </div>
+        </header>
+        <ul>
+            <li ng-class="{selected: selected}" ng-repeat="w in workouts">
+                <div class="table-ctrl"><button class="icon-btn" ng-click="selected = !selected;"><i class="material-icons">{{selected == true ? 'check_box' : 'check_box_outline_blank'}}</i></button></div>
+                <div><a ui-sref="workout" ng-click="viewWorkout(w.$id)">{{w.title}}</a></div> 
+                <div>{{w.type}}</div>
+                <div>{{w.category}}</div>
+                <div class="mvmt-summary">
+                    <span ng-repeat="m in w.movements">{{m.movement}}</span>
+                </div>
+                <div>{{w.date.publish}}</div>
+                <div>{{w.date.start}}</div>
+                <div>{{w.date.end}}</div>
+                <div ng-show="selected" class="action"><button class="icon-btn" ng-click="deleteWorkout(w.$id)"><i class="material-icons">delete</i></button></div>
+            </li>
+        </ul>
+    </div>
+</div>

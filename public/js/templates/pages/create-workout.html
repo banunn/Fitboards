@@ -1,0 +1,159 @@
+<div class="wrap workout-wrap">
+<!-- <div class="workout-builder">
+    <header>
+        {{workOutValidate}}
+    </header>
+    {{workout | json}}
+</div> -->
+    <header class="workout-head">
+        <h1>Create New Workout</h1>
+        <h3>Create and Schedule Workouts. Select the primaty objective to get started.</h3>
+    </header>
+
+    <section class="workout-block big-btn" ng-model="workout.type">
+        <ul>
+            <li ng-class="{'active': workout.type == 'time'}" ng-click="workout.type =  'time' ">
+                    <header><i class="material-icons">timer</i></header>
+                    <h3>For Time</h3>
+            </li>
+            <li ng-class="{'active': workout.type == 'amrap'}" ng-click="workout.type =  'amrap' ">
+                    <header><i class="material-icons">timer</i></header>
+                    <h3>AMRAP</h3>  
+            </li>
+            <li ng-class="{'active': workout.type == 'weight'}" ng-click="workout.type =  'weight' ">
+                    <header><i class="material-icons">timer</i></header>
+                    <h3>Total Weight</h3>
+            </li>
+        </ul>
+    </section>
+
+    <section class="workout-block workout-title">
+        <header>
+            <h3>Workout Title</h3>
+            <p>Provide a title work the workout. Anything Goes, make sure its catchy</p>
+        </header>
+        <input type="text" placeholder="title" ng-model="workout.title">
+    </section>
+
+    <section class="workout-block workout-category">
+        <header ng-model="workout.category">
+            <h3>Event Category</h3>
+            <p>Choose a category for this event.</p>
+            <ul class="check-list">
+                <li ng-class="{'active': workout.category == 'standard'}" ng-click="workout.category = 'standard' "><i class="material-icons">{{workout.category === "standard" ? "check_circle" : "radio_button_unchecked"}}</i><span>Standard</span></li>
+                <li ng-class="{'active': workout.category == 'pro'}" ng-click="workout.category = 'pro' "><i class="material-icons">{{workout.category === "pro" ? "check_circle" : "radio_button_unchecked"}}</i><span>Pro</span></li>
+                <li ng-class="{'active': workout.category == 'promoted'}" ng-click="workout.category = 'promoted' "><i class="material-icons">{{workout.category === "promoted" ? "check_circle" : "radio_button_unchecked"}}</i><span>Promoted</span></li>
+            </ul>
+        </header>
+    </section>
+
+    <section class="workout-block">
+        <header>
+            <h3>Basic Description</h3>
+            <p>Use the default description for this objective, or create a custom description.</p>
+        </header>
+        <textarea name="" id="" cols="30" rows="10" ng-model="workout.description"></textarea>
+    </section>
+
+    <section class="workout-block workout-movements">
+        <header>
+            <h3>Movements</h3>
+            <p>Specify movements and reps using the modules below. Add, reorder and remove using hover controls.</p>
+        </header>
+        <ul ng-model="workout.movements">
+            <li ng-repeat="m in workout.movements">
+                <div>
+                    <select name="" id="" ng-model="m.movement">
+                        <option value="" disabled selected>Select Movement</option>
+                        <option value="{{m}}" ng-repeat="m in mvmt">{{m}}</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="number" placeholder="number of reps" ng-model="m.reps">
+                </div>
+            </li>
+        </ul>
+        <footer class="btn-foot">
+        <button ng-click="addMovement()"; class="icon-btn btn-filled"><i class="material-icons">add</i> Add Movement</button>   
+        <button ng-click="resetMovement()"; class="icon-btn btn-reset"><i class="material-icons">restore</i> Reset</button>    
+        </footer>
+    </section>
+    <section class="workout-block workout-weight">
+        <header>
+            <h3>Weight</h3>
+            <p>Specify the prescribed weight for men and women.</p>
+        </header>
+        <div class="weight-select" ng-model="workout.weight">
+            <div>
+                <input placeholder="Mens Weight" type="number" ng-model="workout.weight.mens">
+            </div>
+            <div>
+                <input placeholder="Womens Weight" type="number" ng-model="workout.weight.womens">
+            </div>
+        </div>
+    </section>
+
+    <section class="workout-block workout-description">
+        <header>
+            <h3>Full Description</h3>
+            <p>Review, edit or create the full workout description below.</p>
+            <textarea name="" id="" cols="30" rows="10" ng-model="workout.fullDescription"></textarea>
+        </header>
+    </section>
+    <section class="workout-block workout-equipment">
+        <header>
+            <h3>Required Equipment</h3>
+            <p>Specify all equipment necessary to complete the workout</p>
+        </header>
+        <ul>
+            <li ng-repeat="e in workout.equipment">
+                <select name="" id="" ng-model="e.item">
+                    <option value="" disabled selected>Select Equipment</option>
+                    <option value="{{e}}" ng-repeat="e in equip">{{e}}</option>
+                </select>
+            </li>
+        </ul>
+        <footer class="btn-foot">
+            <button ng-click="addEquip()"; class="icon-btn btn-filled"><i class="material-icons">add</i> Add Equipment</button>   
+            <button ng-click="resetEquip()"; class="icon-btn btn-reset"><i class="material-icons">restore</i> Reset</button>    
+        </footer>
+    </section>
+    <section class="workout-block workout-standards">
+        <header>
+            <h3>Video Submission Standards</h3>
+            <p>Review, edit or create the video submission standards below.</p>
+            <textarea name="" id="" cols="30" rows="10" ng-model="workout.standards"></textarea>
+        </header>
+    </section>
+    <section class="workout-block workout-dates">
+        <header>
+            <h3>Open Dates</h3>
+            <p>Specify the publish, start and end date. Workouts will publish at 12:01 AM on the publish date, are open for registration at 12:01 AM on the start date, and close at 11:59 PM on the end date. </p>
+        </header>
+        <div class="form-row">
+            <div class="icon-input">
+                <input date-picker placeholder="Publish Date" type="text" options="{language: 'en'}" ng-model="workout.date.publish">
+                <i class="material-icons">date_range</i>
+            </div>
+            <div class="icon-input">
+                <input date-picker placeholder="Start Date" type="text" options="{language: 'en'}" ng-model="workout.date.start">
+                <i class="material-icons">date_range</i>
+            </div>
+            <div class="icon-input">
+                <input date-picker placeholder="End Date" type="text" options="{language: 'en'}" ng-model="workout.date.end">
+                <i class="material-icons">date_range</i>
+            </div>
+            
+            
+        </div>
+    </section>
+    <footer class="workout-foot">
+        <button>Save As Draft</button>
+        <button 
+        ng-disabled="!workout.type || !workout.title || !workout.category || !workout.description || !workout.movements || !workout.weight" 
+        ng-click="saveWorkout()" class="filled">
+        Create Workout
+        </button>
+    </footer>   
+
+</div>

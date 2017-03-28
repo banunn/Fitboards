@@ -1,0 +1,273 @@
+.workout-wrap {
+    max-width: 750px;
+    margin: 0 auto;
+    padding-bottom: 200px;
+
+    .workout-builder {
+        width: 250px;
+        position: fixed;
+        top: 25%;
+        background: #000;
+        color: #fff;
+        min-height: 300px;
+        left: 0;
+    }
+        ul {
+            margin:0;
+            padding:0;
+            list-style: none;
+            display: flex;
+            li {
+                flex: 1 1 auto;
+                display: flex;
+            }
+        }
+    .workout-head {
+        text-align: center;
+        h1 {
+            font-size: 32px;
+            line-height: 1em;
+            margin-bottom:0;
+        }
+        h3 {
+            height: 18px;
+            margin-top:0;
+            line-height: 1em;
+        }
+    }
+
+    .workout-block {
+        margin-bottom: 75px;
+
+        header {
+            margin-bottom: 20px;
+            h3 {
+                font-size: 25px;
+                margin: 0;
+            }
+            p {
+                margin:0;
+            }
+        }
+        select {
+            display: block;
+            width: 100%;
+            border: 1px solid #191919;
+            padding: 15px;
+        }
+        textarea {
+            padding: 10px;
+            border: 1px solid #191919;
+            margin: 15px 0;
+            display: block;
+            width: 100%;
+        }
+    }
+input[type="text"], input[type="number"] {
+                    width: 100%;
+                    display: block;
+                    border: 1px solid $black;
+                    padding: 15px;
+                }
+    .workout-movements{
+        ul {
+            display: flex;
+            flex-direction: column;
+        }
+
+        li {
+            display: flex;
+            margin-bottom: 15px;
+            &:last-child {
+                margin-bottom:0;
+            }
+            > * {
+                flex: 1 1 auto;
+                &:first-child {
+                    flex: 7.5;
+                    select {
+                        border-right: none;
+                        padding: 14px 15px;
+                    }
+                }
+            }
+        }
+    }
+
+     .workout-equipment {
+         ul {
+             flex-direction: column !important;
+             li {
+                 margin-bottom: 15px;
+                 &:last-child{
+                     margin-bottom:0;
+                 }
+             }
+         }
+     }
+
+    .btn-foot {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+
+    .workout-dates {
+        .form-row {
+            display: flex;
+            > div {
+                flex: 1 1 auto;
+                margin: 0 5px;
+                input[type="text"] {
+                    width: 100%;
+                    display: block;
+                    border: 1px solid $black;
+                }
+                &:first-child {
+                    margin-left: 0;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+        i {
+            color: rgba($black, .4);
+        }
+    }
+
+    .workout-weight {
+        .weight-select {
+            display: flex;
+            > div {
+                flex: 1 1 auto;
+                margin: 0 5px;
+                &:first-child {
+                    margin-left: 0;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    .workout-foot {
+        text-align: center;
+        button {
+            cursor: pointer;
+            border: 1px solid $black;
+            background: #fff;
+            color: $black;
+            width: 250px;
+            padding: 15px 0;
+            @extend .headFont;
+            font-size: 16px;
+            &:hover {
+                background: $blue;
+                border: 1px solid $blue;
+                color: #fff;
+            }
+            &:first-of-type {
+                margin-right: 7px;
+            }
+            &.filled {
+                color: #fff;
+                background: $black;
+                &:hover {
+                background: darken($black, 5%);
+                border: 1px solid darken($black, 5%);
+                color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.big-btn {
+    ul {
+        list-style: none;
+        display: flex;
+        padding:0;
+        margin:0;        
+        > li {
+            flex: 1 1 auto;
+            flex-direction: column;
+            text-align: center;
+            width: 33%;
+            padding: 15px;
+            color: rgba($black, .4);
+            border: 1px solid rgba($black, .1);
+            margin: 0 5px;
+            cursor: pointer;
+            header {
+                margin-bottom: 0 !important;
+                i {
+                    font-size: 32px;
+                }
+            }
+            h3 {
+                font-size: 25px;
+                margin:5px 0;
+            }
+            &:first-child{
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+            &.active {
+                background: rgba($blue, .1);
+                border: 1px solid $blue;
+                color: $blue;
+            }
+        }
+    }
+}
+
+.check-list {
+    display: flex;
+    list-style: none;
+    margin:0;
+    padding:0;
+    li {
+        flex: inherit !important;
+        display: flex;
+        align-items: center;
+        padding: 15px 0;
+        margin-right: 35px;
+        color: rgba($black, .4);
+        cursor: pointer;
+        @extend .headFont;
+        span {
+            font-size: 20px;
+            line-height: 1em;
+            position: relative;
+            top: 2px;
+        }
+        i {
+            margin-right: 10px;
+        }
+        &.active {
+            color: $blue;
+        }
+    }
+}
+
+.icon-input {
+    position: relative;
+    .icn-style{
+        padding: 15px 15px 15px 35px;
+        & + i {
+            position: absolute;
+            left: 5px;
+            top: 12.5px;
+        }
+    }
+    input {
+        &[type="date"] {@extend .icn-style;}
+        &[type="text"] {@extend .icn-style;}
+        &[type="password"] {@extend .icn-style;}
+        &[type="number"] {@extend .icn-style;}
+    }
+}

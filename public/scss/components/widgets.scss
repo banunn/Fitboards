@@ -1,0 +1,90 @@
+.widget {
+    margin-bottom: 40px;
+    background: #EDEEF0;
+    ul {
+        margin:0;
+        padding:0;
+        list-style: none;
+    }
+    .w-body {
+        padding: 45px 20px;
+        display: flex;
+        > * {
+            flex: 1;
+            min-width: 50%;
+            &:first-child {
+                margin-right: 20px;
+            }
+        }
+        li {
+            margin-bottom: 40px;
+            display: flex;
+            color: rgba($black, .5);
+            label {
+                @extend .headFont;
+                font-size: 18px;
+                letter-spacing: -.25px;
+                min-width: 85px;
+                color: $black;
+            }
+        }
+    }
+    header {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        background: $black;
+        color: #fff;
+        padding: 20px 15px;
+        justify-content: space-between;
+        > * {
+            margin:0;
+        }
+        h2 {
+            font-size: 25px;
+        }
+
+        button {
+            cursor: pointer;
+            i {
+                color: #fff;
+            }
+            &.save {
+                i {color: $green;}
+            }
+        }
+    }
+
+    input[type="text"],input[type="number"],select,input[type="date"] {
+        background: rgba(#fff, .75);
+        border: 1px solid rgba($black,.3);
+        padding: 5px 10px;
+        box-sizing: border-box;
+        max-width: calc(100% - 10px);
+        display: block;
+        border-radius: 3px;
+        width: 200px;
+    }
+    select{
+        display: block;
+        max-width: 190px;
+    }
+    input[type="date"]{
+        display: block;
+        max-width: 100%;
+        min-width: 195px;
+    }
+
+    span {
+        > span {
+            display: block;
+            margin-bottom: 10px;
+            input {
+                margin-bottom: 10px;
+            }
+            select {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

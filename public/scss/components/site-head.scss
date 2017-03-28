@@ -1,0 +1,108 @@
+.site-head  {
+    background: $black;
+    padding: 15px 70px;
+    color: #fff;
+    margin-bottom: 55px;
+    ul {
+        margin:0;
+        padding:0;
+    }
+    > header {
+        color: #fff;
+        &.meta-head {
+            display: flex;
+            justify-content: space-between;
+           >  ul {
+                @extend .headFont;
+                font-size: 16px;
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                li{
+                    display: inline-block;
+                    margin-right: 40px;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                    a {
+                        display: block;
+                        color: rgba(white, .54);
+                    }
+                    &.active {
+                        a { color: #fff;}
+                    }
+                    &:hover {
+                        a { 
+                            color: rgba(white, .85);
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .menu-auth {
+        position: relative;
+        i {
+            font-size: 16px;
+            &:first-child {
+                margin-right: 5px;
+            }
+            &:last-child {
+                margin-left: 5px;
+                cursor: pointer;
+            }
+        }
+        > header {
+            display: flex;
+            align-items: center;
+            
+        }
+        .drop {
+            position: absolute;
+            background: #fff;
+            width: 150px;
+            right:0;
+            margin-top: 10px;
+            text-transform: uppercase;
+            font-size: 12px;
+            ul {
+                @extend .list-reset; 
+                display: block;
+                i {
+                    font-size: 14px;
+                }
+                li {
+                    a {
+                        display: block;
+                        padding:10px 5px;
+                        display: flex;
+                        align-items: center;
+                        color: $black;
+                        &:hover {
+                            background: darken(#fff, 5%);
+                            text-decoration: none;
+                            color: $blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .page-info {
+        display: flex;
+        margin-top: 36px;
+        align-items: baseline;
+        h1 {
+            display: inline-block;
+            margin-right: 15px;
+            padding-right: 15px;
+            border-right: 1px solid rgba(white, .54);
+        }
+        h3 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 200;
+        }
+    }
+}

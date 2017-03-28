@@ -1,0 +1,38 @@
+.flex-main {
+    display: flex;
+    > * {
+        flex: 1;
+        margin: 0 25px;
+        &:first-of-type{
+            margin-left: 0;
+        }
+        &:last-of-type{
+            margin-right: 0;
+        }
+    }
+    .action {
+        padding-top: 15px;
+        border-top: 1px solid #eaeaea;
+        .btn {
+            display: flex; 
+            align-items: center;
+            background: #3ac35e;
+            border: 1px solid #3ac35e;
+            &:hover {
+                background: darken(#3ac35e, 5%);
+            }
+        }
+        .btn-block {
+            width: 100%;
+            justify-content: center;
+        }
+        .btn-negative {
+            background:  rgba(#3ac35e, .25);
+             border: 1px solid #3ac35e;
+            color: darken(#3ac35e, 5%);
+            &:hover { 
+                background: rgba(#3ac35e, .35);
+            }
+        }
+    }
+}
