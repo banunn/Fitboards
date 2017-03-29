@@ -75,6 +75,27 @@ $scope.resetEquip = function() {
         $scope.firebaseUser = firebaseUser;
         if(firebaseUser) {
 
+        
+        $scope.workoutPic = function () {
+            var file = document.getElementById('file').files[0],
+                r = new FileReader();
+            var storageRef = firebase.storage().ref('images/workouts' + file.name);
+            var task = storageRef.put(file);
+            task.on('state_changed',
+                function progress(snapshot) {
+                    var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    $scope.uploadValue = percentage;
+                },
+                function error(err) {
+
+                },
+                function complete() {
+                    var downloadURL = task.snapshot.downloadURL || snapshot.downloadURL;
+                    $scope.workout.featuredImage =  downloadURL;
+                }
+            );
+        }
+
 
     
         $scope.saveWorkout = function(workout) {

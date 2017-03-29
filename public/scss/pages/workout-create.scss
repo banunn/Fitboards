@@ -112,6 +112,36 @@ input[type="text"], input[type="number"] {
         margin-top: 15px;
     }
 
+    .image-upload {
+        figure {
+            margin:0;
+            max-width: 100%;
+            padding: 25px;
+            background:$black;
+            img {
+                box-shadow: 0px 0px 5px rgba(#fff, .35);
+                max-width: 100%;
+            }
+        }
+        div {
+            margin-top: 15px;
+            display: flex;
+            padding: 15px;
+            border: 1px dashed #ccc;
+            
+            justify-content: space-between;
+            align-content: center;
+            input[type="file"] {
+                margin-top: 10px;
+            }
+            button {
+                padding: 10px 15px;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+
     .workout-dates {
         .form-row {
             display: flex;

@@ -39,12 +39,13 @@
         <ul>
             <li ng-class="{selected: selected}" ng-repeat="u in users">
                 <div class="table-ctrl"><button class="icon-btn" ng-click="selected = !selected"><i class="material-icons">{{selected == true ? 'check_box' : 'check_box_outline_blank'}}</i></button></div>
-                <div><a ui-sref="profile" ng-click="setUser(u.uid)">{{u.fullName}}</a></div> 
-                <div>{{u.email}}</div>
-                <div>standard</div>
+                <div><a ui-sref="profile" ng-click="setUser(u.uid)" ng-bind="u.fullName"></a></div> 
+                <div ng-bind="u.email"></div>
+                <div ng-bind="u.accountType"></div>
                 <div>active</div>
                 <div>07/01/0217</div>
                 <div>03/14/2017</div>
+               <!--  <div ng-show="selected" class="action"><button class="icon-btn" ng-click="deleteUser(u.$id)"><i class="material-icons">delete</i></button></div>  -->
             </li>
         </ul>
     </div>

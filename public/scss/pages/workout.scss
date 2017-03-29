@@ -35,4 +35,24 @@
             }
         }
     }
+
+    .mini-wrap {
+        display: flex;
+        > div {
+            flex: 1;
+            &:last-child {
+                flex: 1.35;
+            }
+        }
+    }
+
+    figure {
+        max-width: 100%;
+        margin:0;
+        padding: 5px;
+        border: 1px solid $black;
+        img {
+            max-width: 100%;
+        }
+    }
 }

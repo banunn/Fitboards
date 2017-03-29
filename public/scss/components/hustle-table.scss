@@ -35,6 +35,11 @@
             color: rgba(#444, .2);
             cursor: pointer;
         }
+                    .icon-btn {
+                &:focus{
+                    outline: none;
+                }
+            }
         flex:1;
         max-width: 30px;
     }
